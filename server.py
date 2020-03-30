@@ -24,7 +24,7 @@ def get_song_path():
     if song_info:
         api_path = song_info["result"]["api_path"]
         return get_song_lyrics(api_path)
-        
+
 def get_song_lyrics(api_path):
     song_url = base_url + api_path
     response = requests.get(song_url, headers=headers)
@@ -37,3 +37,6 @@ def get_song_lyrics(api_path):
     [h.extract() for h in html('script')]
     lyrics = html.find("div", class_="lyrics").get_text()
     return lyrics
+
+if __name__ == '__main__':
+    app.run(debug=False, host="0.0.0.0", port=80)
