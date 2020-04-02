@@ -51,8 +51,8 @@ def get_song_lyrics_google():
     print(page)
     html = BeautifulSoup(page.text, "html.parser")
     print(html)
-    lyrics = html.find("div", class_="PZPZlf").decode_contents()
-    return lyrics
+    #lyrics = html.find("div", class_="PZPZlf").decode_contents()
+    return html.get_text()
 
 if __name__ == '__main__':
     app.run(debug=False, host="0.0.0.0", port=5000)
