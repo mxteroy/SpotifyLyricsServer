@@ -50,6 +50,7 @@ def get_song_lyrics_google():
     page = requests.get(url)
     print(page)
     html = BeautifulSoup(page.text, "html.parser")
+    print(html)
     lyrics = html.find("div", class_="PZPZlf").text
     return lyrics
 
