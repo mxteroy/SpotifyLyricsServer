@@ -48,6 +48,7 @@ def get_song_lyrics_google():
     url = 'https://www.google.com/search?q=' + song + ' ' + artist + " lyrics"
 
     page = requests.get(url)
+    html = BeautifulSoup(page.text, "html.parser")
     lyrics = html.find("div", class_="PZPZlf").text
     return lyrics
 
