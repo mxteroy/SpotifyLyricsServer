@@ -41,7 +41,7 @@ def get_song_lyrics(api_path):
     return lyrics
 
 #PZPZlf
-@app.rout('/google')
+@app.route('/google')
 def get_song_lyrics_google():
     artist = request.args.get('artist')
     song = request.args.get('song')
