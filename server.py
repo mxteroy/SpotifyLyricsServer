@@ -37,7 +37,7 @@ def get_song_lyrics(api_path):
     page = requests.get(page_url)
     html = BeautifulSoup(page.text, "html.parser")
     [h.extract() for h in html('script')]
-    [a.get_text() for a in html('a')]
+    [a.unwrap() for a in html('a')]
     lyrics = html.find("div", class_="lyrics").decode_contents()
     return lyrics
 
