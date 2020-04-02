@@ -40,5 +40,16 @@ def get_song_lyrics(api_path):
     lyrics = html.find("div", class_="lyrics").decode_contents()
     return lyrics
 
+#PZPZlf
+@app.rout('/google')
+def get_song_lyrics_google():
+    artist = request.args.get('artist')
+    song = request.args.get('song')
+    url = 'https://www.google.com/search?q=' + song + ' ' + artist + " lyrics"
+
+    page = requests.get(url)
+    lyrics = html.find("div", class_="PZPZlf").text
+    return lyrics
+
 if __name__ == '__main__':
     app.run(debug=False, host="0.0.0.0", port=5000)
